@@ -1,15 +1,17 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DriveRentSales.Models
+namespace DriveRentSales.Models.Entities
 {
-    public class MaintanceLog
+    public class MaintanceLog:IEntity
     {
         [Key]
-        public int IdMaintanceLog { get; set; }
+        public int Id { get; set; }
 
-        [ForeignKey(nameof(IdMaintanceLog)), Required]
+        [Required]
         public int IdVehicleRent { get; set; }
+
+        public VehicleRent? VehicleRent { get; set; }
 
         [Required]
         public string Description { get; set; }

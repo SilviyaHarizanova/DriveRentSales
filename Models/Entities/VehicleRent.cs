@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DriveRentSales.Models
+namespace DriveRentSales.Models.Entities
 {
-    public class VehicleRent
+    public class VehicleRent:IEntity
     {
         [Key]
-        public int IdVehicleRent { get; set; }
+        public int Id { get; set; }
 
         [Required, StringLength(45)]
         public string RegistrationNumber { get; set; }
@@ -32,10 +32,12 @@ namespace DriveRentSales.Models
         [Required, StringLength(45)]
         public string Status { get; set; }
 
-        [ForeignKey(nameof(IdRentalBooking)), Required]
+        [Required]
         public int IdRentalBooking { get; set; }
+        public RentalBooking? RentalBooking { get; set; }
 
-        [ForeignKey(nameof(IdReview)), Required]
+        [Required]
         public int IdReview { get; set; }
+        public Review? Review { get; set; }
     }
 }

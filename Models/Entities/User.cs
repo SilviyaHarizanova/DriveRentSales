@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Reflection.Metadata;
 
-namespace DriveRentSales.Models
+namespace DriveRentSales.Models.Entities
 {
-    public class User
+    public class User:IEntity
     {
         [Key]
         public int Id { get; set; }
@@ -22,8 +22,9 @@ namespace DriveRentSales.Models
         [Required, Range(18, 100)]
         public int Age { get; set; }
 
-        [ForeignKey(nameof(IdRole)), Required]
+        [ Required]
         public int IdRole { get; set; }
+        public Role? Role { get; set; }
 
         [Required]
         public Blob DrivingLicense { get; set; }

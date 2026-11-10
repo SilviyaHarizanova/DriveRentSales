@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace DriveRentSales.Models
+namespace DriveRentSales.Models.Entities
 {
-    public class VehicleSale
+    public class VehicleSale:IEntity
     {
         [Key]
-        public int IdVehicleSale { get; set; }
+        public int Id { get; set; }
 
         [Required, StringLength(45)]
         public string Model { get; set; }

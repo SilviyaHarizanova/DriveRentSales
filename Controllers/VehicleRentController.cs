@@ -17,8 +17,8 @@ namespace DriveRentSales.Controllers
         }
         public async Task<IActionResult> Index()
     {
-        var workouts = await _vehicleRentRepo.GetAllAsync();
-        if (!workouts.Any())
+        var vehicles = await _vehicleRentRepo.GetAllAsync();
+        if (!vehicles.Any())
         {
             await _vehicleRentRepo.AddAsync(new VehicleRent
             {
@@ -59,9 +59,9 @@ namespace DriveRentSales.Controllers
                 Status = "Free"
             });
 
-            workouts = await _vehicleRentRepo.GetAllAsync();
+            vehicles = await _vehicleRentRepo.GetAllAsync();
         }
-        return View(workouts);
+        return View(vehicles);
     }
 }
 }

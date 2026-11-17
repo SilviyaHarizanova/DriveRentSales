@@ -21,8 +21,8 @@ namespace DriveRentSales.Controllers
             }
             public async Task<IActionResult> Index()
             {
-                var workouts = await _vehicleSaleRepo.GetAllAsync();
-                if (!workouts.Any())
+                var vehicles = await _vehicleSaleRepo.GetAllAsync();
+                if (!vehicles.Any())
                 {
                     await _vehicleSaleRepo.AddAsync(new VehicleSale
                     {
@@ -59,9 +59,9 @@ namespace DriveRentSales.Controllers
                         Status = true
                     });
 
-                    workouts = await _vehicleSaleRepo.GetAllAsync();
+                    vehicles = await _vehicleSaleRepo.GetAllAsync();
                 }
-                return View(workouts);
+                return View(vehicles);
             }
         }
     }

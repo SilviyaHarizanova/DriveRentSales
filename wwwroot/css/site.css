@@ -20,3 +20,34 @@ html {
 body {
   margin-bottom: 60px;
 }
+.vehicle-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+.vehicle-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.vehicle-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.vehicle-card .card-title {
+        font-weight: bold;
+        margin-bottom: 20px;
+}
+
+.vehicle-card-link:focus-visible {
+    outline: 3px solid #6c63ff;
+    outline-offset: 4px;
+    border-radius: 15px;
+}

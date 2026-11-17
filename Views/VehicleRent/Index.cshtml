@@ -1,0 +1,58 @@
+﻿@model IEnumerable<DriveRentSales.Models.Entities.VehicleRent>
+
+@{
+    ViewData["Title"] = "Коли под наем";
+}
+<div class="container mt-4">
+    <h2>Каталог с коли под наем</h2>
+    <div class="row g-4">
+        @foreach (var vehicleRent in Model)
+        {
+            <div class="col-12 col-md-6 col-lg-4">
+
+                <a asp-controller="VehicleRent"
+                   asp-action="Index"
+                   asp-route-id="@vehicleRent.Id"
+                   class="vehicle-card-link">
+
+                    <div class="card vehicle-card h-100">
+
+                        <div class="card-body">
+
+                            <h4 class="card-title">
+                                @vehicleRent.Brand @vehicleRent.Model
+                            </h4>
+
+                            <p class="card-text">
+                                <strong>Регистрационен номер:</strong>
+                                @vehicleRent.RegistrationNumber
+                            </p>
+
+                            <p class="card-text">
+                                <strong>Година:</strong>
+                                @vehicleRent.Year
+                            </p>
+
+                            <p class="card-text">
+                                <strong>Гориво:</strong>
+                                @vehicleRent.Fuels
+                            </p>
+                            <p class="card-text">
+                                <strong>Скоростна кутия:</strong>
+                                @vehicleRent.Gearbox
+                            </p>
+                            <p class="card-text">
+                                <strong>Дневна наемна цена:</strong>
+                                @vehicleRent.DayRentPrice
+                            </p>
+                            <p class="card-text">
+                                <strong>Статус:</strong>
+                                @vehicleRent.Status
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+</div>

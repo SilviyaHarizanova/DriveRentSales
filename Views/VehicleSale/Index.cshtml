@@ -1,0 +1,50 @@
+﻿@model IEnumerable<DriveRentSales.Models.Entities.VehicleSale>
+
+@{
+    ViewData["Title"] = "Коли за продажба";
+}
+<div class="container mt-4">
+    <h2>Каталог с коли за продажба</h2>
+    <div class="row g-4">
+        @foreach (var vehicleSale in Model)
+        {
+            <div class="col-12 col-md-6 col-lg-4">
+
+                <a asp-controller="VehicleSale"
+                   asp-action="Index"
+                   asp-route-id="@vehicleSale.Id"
+                   class="vehicle-card-link">
+
+                    <div class="card vehicle-card h-100">
+
+                        <div class="card-body">
+
+                            <h4 class="card-title">
+                                @vehicleSale.Brand @vehicleSale.Model
+                            </h4>
+
+                            <p class="card-text">
+                                <strong>Цена:</strong>
+                                @vehicleSale.Price
+                            </p>
+
+                            <p class="card-text">
+                                <strong>Година:</strong>
+                                @vehicleSale.Year
+                            </p>
+
+                            <p class="card-text">
+                                <strong>Гориво:</strong>
+                                @vehicleSale.Fuels
+                            </p>
+                            <p class="card-text">
+                                <strong>Скоростна кутия:</strong>
+                                @vehicleSale.Gearbox
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+</div>

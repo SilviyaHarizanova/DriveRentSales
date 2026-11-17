@@ -1,3 +1,6 @@
+using DriveRentSales.Repository;
+using DriveRentSales.Services;
+
 namespace DriveRentSales
 {
     public class Program
@@ -8,6 +11,12 @@ namespace DriveRentSales
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            // Register repositories
+            builder.Services.AddSingleton(typeof(IRepository<>), typeof(InMemoryRepository<>));
+
+            // Register services
+            builder.Services.AddScoped<CarServices>();
 
             var app = builder.Build();
 

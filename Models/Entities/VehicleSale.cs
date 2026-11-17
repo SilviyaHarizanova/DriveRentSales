@@ -27,5 +27,8 @@ namespace DriveRentSales.Models.Entities
 
         [Required]
         public bool Status { get; set; }
+
+        public int IdUser { get; set; }
+        public User? User { get; set; }
     }
 }

@@ -32,12 +32,10 @@ namespace DriveRentSales.Models.Entities
         [Required, StringLength(45)]
         public string Status { get; set; }
 
-        [Required]
-        public int IdRentalBooking { get; set; }
-        public RentalBooking? RentalBooking { get; set; }
 
-        [Required]
-        public int IdReview { get; set; }
-        public Review? Review { get; set; }
+        public List<RentalBooking>? RentalBookingList { get; set; } = new List<RentalBooking>();
+
+
+        public List<Review>? ReviewList { get; set; } = new List<Review>();
     }
 }

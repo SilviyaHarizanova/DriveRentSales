@@ -28,5 +28,7 @@ namespace DriveRentSales.Models.Entities
 
         [Required]
         public Blob DrivingLicense { get; set; }
+
+        public List<VehicleSale> VehiclesBought { get; set; } = new List<VehicleSale>();
     }
 }

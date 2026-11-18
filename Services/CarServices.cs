@@ -6,8 +6,13 @@ namespace DriveRentSales.Services
     {
         public bool IsCarFree(VehicleRent car, DateOnly start, DateOnly end)
         {
-            if (car.RentalBookingList.Last().PeriodEnd >= start && car.RentalBookingList.Last() != null)
-            { return false; }
+            foreach (var booking in car.RentalBookingList)
+            {
+                if (booking.PeriodStart <= end && booking.PeriodEnd >= start)
+                {
+                    return false;
+                }
+            }
             return true;
         }
 
